@@ -283,6 +283,7 @@ font2 <-matrix(c(a2,b2,c2,d2,e2,j2,k2),ncol=72,byrow=T)
 font3 <-matrix(c(a3,b3,c3,d3,e3,j3,k3),ncol=72,byrow=T)
 BobotSom<-matrix(c(aBobot,bBobot,cBobot,dBobot,eBobot,jBobot,kBobot),ncol=72,byrow=T)
 bobotLvq<-matrix(c(aBobot,bBobot,cBobot,dBobot,eBobot,jBobot,kBobot),ncol=72,byrow=T)
+font = array(c(font1,font2,font3),dim=c(7,72,3))
 
 
 classFeedFoward<-function(font){
@@ -450,7 +451,7 @@ classSOM<-function(font,BobotSom){
     data.frame( 
         "Predicted" = round(final_cluster),
     )
-    
+  }
 }
 
 classLvq<-function(font,bobotLvq){
@@ -618,4 +619,18 @@ classHebb<-function(font,training){
         "Predicted" = round(output),
     )
 
+}
+
+classMain<-function(font){
+  
+  for(i in 1:font){
+    
+      classFeedFoward(font[,,i])
+      classBackProp(classFeedFoward(font[,,i]))
+      classSOM(font[,,i],BobotSom)
+      classLvq(font[,,i],bobotLvq)
+      classHebb(font[,,i],TRUE)
+  
+  }
+  
 }
