@@ -1,3 +1,12 @@
+#Buatlah jarngan syarat untuk mengenali 7 huruf tersebut masing-masing dengan menggunakan : 
+#a.	Jaringan HEBB
+#b.	Jaringan Perceptron
+#c.	Jaringan Propagasi balik error
+#d.	SOM 
+#e.	LVQ
+
+
+
 #menentukan variabel precditor
 a1<-c(0,0,1,1,0,0,0,0,
       0,0,0,1,0,0,0,0,
